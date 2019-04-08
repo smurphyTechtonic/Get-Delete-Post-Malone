@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>GET/POST/DELETE</title>
+      <link rel="stylesheet" href="malone.css">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <link href="https://fonts.googleapis.com/css?family=Michroma" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC|Monoton" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Gruppo|Julius+Sans+One|Jura|Megrim|Syncopate|Michroma" rel="stylesheet">
+      <script
+         src="https://code.jquery.com/jquery-3.3.1.js"
+         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+         crossorigin="anonymous"></script>
+   </head>
+   <body>
+      <div class="jumbotron jumbotron-fluid" id="jumbo" style="">
+         <div class="title" id="title">
+            <h1>GET</h1>
+            <h1>DELETE</h1>
+            <div class="titlejr">
+               <h1>POST</h1>
+               <h2>MALONE</h2>
+            </div>
+            <p id="youSaved">YOU SAVED POST MALONE!</p>
+            <p id="youDeleted">YOU DELETED POST MALONE!</p>
+         </div>
+         <div class="flex-container page">
+            <button type="button" id="returnBtn" class="showMe">Back to the comments</button>
+            <div class="form" autocomplete="off">
+               <div id="namefield" autocomplete="off">
+                  <input type="text" id="nameinput" placeholder="Name" autocomplete="off" onfocus="clearField(this);">
+               </div>
+               <br>
+               <div id="commentfield">
+                  <input type="text" id="commentinput" autocomplete="off" placeholder="Get, Delete or Post Post Malone" onfocus="clearField(this);">
+               </div>
+               <br>
+               <div id="buttons">
+                  <button type="button" id="showBtn" class="showMe">Check Comments</button>
+                  <button type="button" id="submitBtn" type="submit">Submit Comment</button>
+               </div>
+               <div class="deleteSave">
+                  <p>Oh no! Somebody from Techtonic wants to delete Post Malone!</p>
+                  <p>What should we do?</p>
+                  <br>
+                  <button type="button" id="saveBtn" type="submit">Save Post Malone</button>
+                  <br>
+                  <button type="button" id="killBtn" type="submit">Delete Post Malone</button>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div id="comments" class="comments"></div>
+   </body>
+   <script src="malone.js"></script>
+   <script src="utils.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script type="text/javascript"></script>
+</html>
+COPY TO CLIPBOARD	 SELECT ALL
