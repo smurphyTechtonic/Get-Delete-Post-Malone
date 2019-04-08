@@ -23,10 +23,15 @@ function fadeToKevin() {
     $("#title").css('color', 'white');
 }
 
+//FADETOKEVIN
+function fadeToKevinPost() {
+    $("#jumbo").css('background-image', 'url("https://preview.redd.it/cb1o8h64rga21.jpg?width=960&crop=smart&auto=webp&s=fa6299511a62b0597a68acaed023f6c4e94351c2")');
+    $("#title").css('color', 'white');
+}
+
 
 //SAVEPOSTMALONE
 document.getElementById('saveBtn').addEventListener('click', function(e) {
-    console.log("SAVED!")
     $("#jumbo").css('background-image', 'url("https://media.giphy.com/media/3ohs7QyaPeg1tMszfi/giphy.gif")');
     $("#youSaved").delay(0).fadeIn(1000);
     $("h1").fadeOut(0);
@@ -40,7 +45,6 @@ document.getElementById('saveBtn').addEventListener('click', function(e) {
 
 //DELETEPOSTMALONE
 document.getElementById('killBtn').addEventListener('click', function(e) {
-    console.log("SAVED!")
     $("#youDeleted").fadeIn(2000);
     $("h1").fadeOut(0);
     $("h2").fadeOut(0);
@@ -52,12 +56,9 @@ document.getElementById('killBtn').addEventListener('click', function(e) {
     $("#buttons").fadeIn(500);
     $("#namefield").fadeIn(500);
     $("#commentfield").fadeIn(500);
-    console.log("colorchange");
-    // $("#returnBtn").fadeIn(2000);
 });
 
 document.getElementById('returnBtn').addEventListener('click', function(e) {
-    console.log("SAVED!")
     location.reload();
     initialBoard();
 
@@ -76,9 +77,14 @@ function clearField(input) {
 
 
 $("#comments").click(function() {
-    // location.reload();
-    console.log("hiiiiiiii");
-});
+  $("#comments button").animate({zoom: '50%'}, "fast");
+  $("#comments button").animate({zoom: '-50%'}, "fast");
+  // $( "deleteBtn" ).parent(fadeOut(500));
+  });
+
+
+
+
 
 
 

@@ -44,14 +44,14 @@ function createData(data) {
             $("#namefield").fadeOut(0);
             $("#commentfield").fadeOut(0);
         };
-        if (data[i].comment === "get karl malone") {
-            let dImg = document.createElement('IMG');
-            dImg.setAttribute("src", "https://pbs.twimg.com/profile_images/378800000183722704/d0ea2896a48cc72ea171e2726dfe029a_400x400.jpeg");
-            dImg.setAttribute("width", "50px");
-            dImg.setAttribute("height", "50px");
-            newUl.append(dImg);
-            newUl.setAttribute("height", "50px")
-        }
+        // if (data[i].comment === "get karl malone") {
+        //     let dImg = document.createElement('IMG');
+        //     dImg.setAttribute("src", "https://pbs.twimg.com/profile_images/378800000183722704/d0ea2896a48cc72ea171e2726dfe029a_400x400.jpeg");
+        //     dImg.setAttribute("width", "200px");
+        //     dImg.setAttribute("height", "200px");
+        //     newUl.append(dImg);
+        //     newUl.setAttribute("height", "50px")
+        // }
         console.log(data[i]);
         newUl.append(author);
         newUl.append(comment);
@@ -89,7 +89,7 @@ function addComment(url = 'https://us-central1-fir-cb-backend.cloudfunctions.net
         })
         .then(function(response) {
             response.json();
-            console.log("HELLO");
+            initialBoard();
         })
         .catch((err) => console.log(err))
 }
@@ -102,8 +102,22 @@ function getData() {
     } else if (document.getElementById("commentinput").value === "get post malone") {
         location.reload();
         initialBoard();
+    } else if (document.getElementById("commentinput").value === "get kevin post malone") {
+        fadeToKevinPost();
     } else if (document.getElementById("commentinput").value === "get kevin malone") {
         fadeToKevin();
+    } else if (document.getElementById("commentinput").value === "delete post malone") {
+      $("#youDeleted").fadeIn(2000);
+      $("h1").fadeOut(0);
+      $("h2").fadeOut(0);
+      $(".deleteSave").fadeOut(0);
+      $("#killBtn").fadeOut(0);
+      $("#saveBtn").fadeOut(0);
+      $("#jumbo").css('background-image', 'url("data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgICAgICAcHCAgIBwoHBgYHBw8ICQcKFREWFhURExMYHCggGBolGxMTITEhJSkrLi4uFx8zODMtNygtLisBCgoKDQ0OFQ8NFS0ZFxkrLSstNy0rKys3KysrLSstNzctLSsrKysrKystKy0rNysrLSsrKy0tNysrKysrKysrK//AABEIASwAqAMBIgACEQEDEQH/xAAYAAEBAQEBAAAAAAAAAAAAAAAAAQIDB//EABoQAQEBAQEBAQAAAAAAAAAAAAABEQJBMQP/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/EABYRAQEBAAAAAAAAAAAAAAAAAAABEf/aAAwDAQACEQMRAD8A9xAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAS1U9BQAAAAAAAAAAAAASkMUAAAEgKy0AAAAAAAAAAAAAAlBQAAAAAAAAAAAAAAAAAAAAAAABIoAAAAAAAAAAAAAAAAAACKAAAJ6qSAoAAAAAAAAAAAAAAAAAAAAAAAAAJFIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIoAAAAAAAAAAAAAAAACeqkUAAAAAAAAAAAAAAAAAAAEoEUAAAAAAQALclqcXRGgBQAAAAAAABFAAAAAAAEUBj9PmLzMjWAmAAoAAAAAAAAIoAAAAAAAAAxe41KCiaoAAAAAAAAAAAAAAAADHe+NpglcOeLu12+RrChJjlN11ZkaSKAKAAAAAAAAAAAAAAAACWqlBJWkigAAAAAA//Z")');
+      $("h1").fadeOut(1000);
+      $("#buttons").fadeIn(500);
+      $("#namefield").fadeIn(500);
+      $("#commentfield").fadeIn(500);
     }
     return {
         name: document.getElementById("nameinput").value,
@@ -129,11 +143,38 @@ function deleteComment(id) {
             body: JSON.stringify()
         })
         .then(function(response) {
+            initialBoard();
             // response.json();
         })
         .catch((err) => console.log(err))
-    fetchComments();
+        document.getElementById(id).remove();
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //INITIALBOARD
@@ -159,14 +200,20 @@ function blankData(data) {
         author.innerText = data[i].author;
         comment.innerText = data[i].comment;
         newComment.append(deleteBtn);
-        // if (data[i].comment === "woof!") {
-        //   let dImg = document.createElement('IMG');
-        //   dImg.setAttribute("src", "https://pbs.twimg.com/profile_images/378800000183722704/d0ea2896a48cc72ea171e2726dfe029a_400x400.jpeg");
-        //   dImg.setAttribute("width", "10%");
-        //   dImg.setAttribute("height", "10%");
-        //   newUl.appendChild(dImg);
-        //   newUl.setAttribute("height", "50px")
-        // }
+        if (data[i].comment === "get karl malone") {
+          $( "#comments ul li:nth-child(2)").css('background-image', 'url("https://cdn.dribbble.com/users/75302/screenshots/2713686/utahjazz_logos_b.gif")');
+          $( "#comments").css('width', '80%');
+          // else {
+          // $( "#comments ul li:nth-child(2)").css("background-color", "white");
+          // }
+          // let dImg = document.createElement('IMG');
+          // dImg.setAttribute("src", "https://pbs.twimg.com/profile_images/378800000183722704/d0ea2896a48cc72ea171e2726dfe029a_400x400.jpeg");
+          // dImg.setAttribute("width", "25%");
+          // dImg.setAttribute("height", "25%");
+          // newUl.appendChild(dImg);
+          // newUl.setAttribute("height", "50px")
+          // $( "#comments ul li:nth-child(2)").css("background-color", "black")
+        }
         console.log(data[i]);
         newUl.append(author);
         newUl.append(comment);
